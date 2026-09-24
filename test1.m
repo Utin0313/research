@@ -26,8 +26,20 @@ validFrames = transform(validDS, @helperModClassReadFrame);
 rxValidFrames = readall(validFrames, "UseParallel", pctExists);
 
 trainLabels = transform(trainDS, @helperModClassReadLabel); 
-rxTrainLabels = readall(trainLabels, "UseParallel", pctExists); 
+rxTrainLabels = readall(trainLabels, "UseParallel", pctExists);
+validLabels = transform(validDS, @helperModClassReadLabel);
+rxValidLabels = readall(validLabels, "UseParallel", pctExists); 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --   Train the CNN   -- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+modClassNet = helperModClassCNN(modulation); 
+
+maxEpochs = 20; 
+miniBatchSize = 1024; 
+trainingPlots = None; 
+metrics = None; 
+verbose = 
 
