@@ -111,7 +111,3 @@ else
     disp("Data files exist. Skip data generation.")
 end 
 
-
-% -- Plot amplitude of real/img parts and spectrogram -- 
-helperModClassPlotTimeDomain(dataDir, modulationTypes, fs)
-helperModClassPlotSpectrogram(dataDir, modulationTypes, fs, sps)

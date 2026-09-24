@@ -1,0 +1,33 @@
+clc; clear; close all
+
+% -- Directory -- 
+modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK"]));
+dataDir = "C:\Users\trinh\AppData\Local\Temp\ModClassDataFiles";
+fs = 200e3; 
+sps = 8; 
+
+percentTrainingSamples = 80; 
+percentValidationSamples = 10;
+percentTestSamples = 10; 
+
+% -- Plot amplitude of real/img parts and spectrogram -- 
+helperModClassPlotTimeDomain(dataDir, modulationTypes, fs)
+helperModClassPlotSpectrogram(dataDir, modulationTypes, fs, sps)
+
+frameDS = signalData(dataDir, 'SignalVariableNames', ["frame", "label"]); 
+splitPercentages = [percentTrainingSamples, percentValidationSamples, percentTestSamples];
+[trainDS, validDS, testDS] = helperModClassSplitData(frameDS, splitPercentages); 
+
+% -- Import data into memory --
+pctExists = parallelComputingLicenseExists(); 
+trainFrames = transform(trainDS, @helperModClassReadFrame);
+rxTrainFrames = readall(trainFrames, "UseParallel", poctExists);
+validFrames = transform(validDS, @helperModClassReadFrame); 
+rxValidFrames = readall(validFrames, "UseParallel", pctExists);
+
+trainLabels = transform(trainDS, @helperModClassReadLabel); 
+rxTrainLabels = readall(trainLabels, "UseParallel", pctExists); 
+
+
+
+
