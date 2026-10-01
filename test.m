@@ -1,5 +1,6 @@
 clc; clear; close all;
 
+% -- 5 types of signal defined -- 
 modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK"]));
 
  % -- Generate 10,000 frames for each modulation types (e.g., 80% train, 10% val, 10% test) --
@@ -102,7 +103,7 @@ if ~dataFileExist
             frame = helperModClassFrameGenerator(rxSamples, spf, spf, transDelay, sps);
 
             % Save data file
-            fileName = fullfile(dataDir, ...
+            fileName = fullfile(dataDir, ...sps 
                 sprintf("%s%s%03d", fileNameRoot, modulationTypes(i), p)); 
             save(fileName, "frame", "labels")
         end 
