@@ -1,18 +1,22 @@
 clc; clear; close all
 
 % -- Directory -- 
-modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK"]));
+modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK", "Noise"]));
+
 % dataDir = "C:\Users\trinh\AppData\Local\Temp\ModClassDataFiles";
-dataDir = "C:\Users\Austin Trinh\AppData\Local\Temp\ModClassDataFiles"; 
+% dataDir = "C:\Users\Austin Trinh\AppData\Local\Temp\ModClassDataFiles";
+dataDir = "C:\Users\Austin Trinh\AppData\Local\Temp\ModClassDataFiles_varSNR";
+
+
 fs = 200e3; 
 sps = 8;
 spf = 1024;
 
 
-% -- Total frames 5 types x 10000 = 50000
-percentTrainingSamples = 80;    % Train = 40000
-percentValidationSamples = 10;  % Val = 1000
-percentTestSamples = 10;        % Test = 1000
+% -- Total frames 6 types x 10000 = 60000
+percentTrainingSamples = 80;    % Train = 50000
+percentValidationSamples = 10;  % Val = 5000
+percentTestSamples = 10;        % Test = 5000
 
 % -- Plot amplitude of real/img parts and spectrogram -- 
 helperModClassPlotTimeDomain(dataDir, modulationTypes, fs)
@@ -49,8 +53,8 @@ verbose = true;
 itersPerEpoch = floor(numel(rxTrainLabels) / miniBatchSize);  % floor(40000/256) ~ 156 
 
 
-options = trainingOptions('adam', ...
-    InitialLearnRate= 3e-1, ...
+options = trainingOptions('sgdm', ...
+    InitialLearnRate= 3e-1, ...                   # InitialLearRate tuned for sgdm (e.g., 3e-1, 3e-2, 1e-1), For adam the learn rate need to be about 100x300 (e.g.,3e-4, 1e-3, 3e-3) smaller.
     MaxEpochs=maxEpochs, ...
     MiniBatchSize=miniBatchSize, ...
     Shuffle= 'every-epoch', ...
@@ -87,5 +91,5 @@ disp("Test accuracy: " + testAccuracy*100 + "%")
 
 % -- Save the model -- 
 testFiles = testDS.Files; 
-save("modClassNet_trained_adam.mat", "trainedNet", "modulationTypes", "testFiles", "sps", "spf", "fs")
+save("modClassNet_trained_sgdm_varSNR.mat", "trainedNet", "modulationTypes", "testFiles", "sps", "spf", "fs")
 disp("Model saved to modClassNet_trained.mat")

@@ -1,8 +1,8 @@
 clc; clear; close all
 
 % -- Load saved model -- 
-load("modClassNet_trained_sgdm.mat")
-modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK"]));
+load("modClassNet_trained_sgdm_varSNR.mat")
+modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK", "Noise"]));
 sps = 8;            % samples per symbol
 spf = 1024;         % samples per frame
 fs = 200e3;         % sampling rate 
