@@ -3,8 +3,6 @@ clc; clear; close all
 capDir = "iq_captures";                                 % .folder contain .dat files
 dataDir = fullfile(tempdir, "ModClassDataFiles_OTA");   % keep separate from synthetic
 
-files = dir(fullfile(capDir, "*.dat"));
-
 modulationTypes = categorical(sort(["BPSK", "QPSK", "8PSK", "16QAM", "GFSK", "Noise"])); 
 sps = 8; spf = 1024; fs = 200e3; 
 
@@ -26,9 +24,9 @@ classNames = lower(string(modulationTypes));
 counts = zeros(1, numel(modulationTypes));
 
 % List every .dat file 
-files = dir(fullfile(capDir, "*.dat"));
+files = dir(fullfile(capDir, "rx160_*.dat"));
 for f = files'                                 % files' is 1x6 -> 6 columns (for loops; loop over columns)
-    tok = lower(extractBefore(string(f.name), "_"));
+    tok = extractBefore(lower(extractAfter(string(f.name), '_')), '_'); % OLD scripts:     tok = lower(extractBefore(string(f.name), "_"));
     idx = find(classNames == tok);             % Obtain idx for each class [1,2,3,4,5,6]
 
     % Check if the idx exist; did we provide modulationTypes
