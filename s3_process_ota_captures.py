@@ -43,7 +43,7 @@ def estimateCenter(x, fs, fNorm, nfft=8192, halfband=60e3):
                  return_onesided=False)
 
     band = np.abs(f - fNorm) < halfband
-    Pb = np.clip(P[band] - np.mean(P[band]), 0, None)
+    Pb = np.clip(P[band] - np.mean(P), 0, None)  # remove noise floor
     if Pb.sum() == 0:
         return np.nan
     return np.sum(Pb * f[band]) / np.sum(Pb)
