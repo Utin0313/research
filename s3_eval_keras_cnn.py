@@ -41,7 +41,6 @@ disp = ConfusionMatrixDisplay.from_predictions(
     y_test, 
     y_pred,
     display_labels=classes,
-    normalize='true', 
     values_format='.2f'
 )
 

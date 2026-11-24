@@ -95,7 +95,7 @@ cb = [
         monitor='val_loss',
         save_best_only=True,
         verbose=1 
-    )
+    ), 
 
 ]
 
@@ -117,19 +117,19 @@ r = model.fit(x_train, y_train,
 # -- Plot loss per iteration -- 
 plt.plot(r.history['loss'], label='loss')
 plt.plot(r.history['val_loss'], label='val_loss')
+plt.savefig('loss.png')
 plt.xlabel('epochs')
 plt.ylabel('loss')
 plt.legend()
-plt.savefig('loss.png')
 plt.show()
 
 
 # -- Plot accuracy per iteration --
 plt.plot(r.history['accuracy'], label='accuracy')
 plt.plot(r.history['val_accuracy'], label='val_accuracy')
+plt.savefig('accuracy.png')
 plt.xlabel('epochs')
 plt.ylabel('accuracy')
 plt.legend()
-plt.savefig('accuracy.png')
 plt.show()
 
