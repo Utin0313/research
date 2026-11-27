@@ -35,7 +35,7 @@ Connect your PC to the router (Ethernet or its default Wi-Fi), then:
   
   Under the adapter connected to the router, read the **Default Gateway** — this is the router's IP (factory default is usually `192.168.1.1`).
 
-![ipconfig output showing IPv4 address and default gateway](images/01_ipconfig.png)
+![ipconfig output showing IPv4 address and default gateway](Images/01_ipconfig.png)
 - **Linux:**
   
 - `ip route | grep default`
@@ -45,7 +45,7 @@ Connect your PC to the router (Ethernet or its default Wi-Fi), then:
 1. Enter the router IP (e.g., `http://192.168.1.1`) in your browser's **address bar** (not a search bar).
 2. On **Configuring Your Internet Connection**, select **"No, manually enter settings"** and click **NEXT**.
 
-![Select "No, manually enter settings"](images/02_manual_settings.png)
+![Select "No, manually enter settings"](Images/02_manual_settings.png)
 
 ### 1.3 Set admin credentials
 
@@ -58,11 +58,11 @@ On **Admin Account Settings**:
 | Security Question #1 | *In what city were you born?* → `Boston` |
 | Security Question #2 | *In what city was your father born?* → `Boston` |
 
-![Admin Account Settings page](images/03_admin_account.png)
+![Admin Account Settings page](Images/03_admin_account.png)
 
 Click **NEXT**. The page reloads and prompts you to sign in — use `admin` and the new password to open the router settings.
 
-![Router sign-in prompt](images/04_sign_in.png)
+![Router sign-in prompt](Images/04_sign_in.png)
 
 > The browser may warn *"Your connection to this site is not private."* This is expected for the router's local HTTP page.
 
@@ -82,8 +82,8 @@ Go to **ADVANCED → Setup → Wireless Setup**.
 
 | Before | After |
 |---|---|
-| ![2.4 GHz wireless settings before](images/05_wifi24_before.png) | ![2.4 GHz wireless settings after](images/06_wifi24_after.png) |
-| ![2.4 GHz security before](images/07_wifi24_security_before.png) | ![2.4 GHz security after](images/08_wifi24_security_after.png) |
+| ![2.4 GHz wireless settings before](Images/05_wifi24_before.png) | ![2.4 GHz wireless settings after](Images/06_wifi24_after.png) |
+| ![2.4 GHz security before](Images/07_wifi24_security_before.png) | ![2.4 GHz security after](Images/08_wifi24_security_after.png) |
 
 > Note: disabling 20/40 MHz Coexistence only affects channel width; it does not hide the network. Hiding is done by disabling SSID Broadcast, and the 2.4 GHz radio is fully turned off in [Step 5](#5-disable-the-24-ghz-radio).
 
@@ -98,8 +98,8 @@ Go to **ADVANCED → Setup → Wireless Setup**.
 
 | Before | After |
 |---|---|
-| ![5 GHz wireless settings before](images/09_wifi5_before.png) | ![5 GHz wireless settings after](images/10_wifi5_after.png) |
-| ![5 GHz security before](images/11_wifi5_security_before.png) | ![5 GHz security after](images/12_wifi5_security_after.png) |
+| ![5 GHz wireless settings before](Images/09_wifi5_before.png) | ![5 GHz wireless settings after](Images/10_wifi5_after.png) |
+| ![5 GHz security before](Images/11_wifi5_security_before.png) | ![5 GHz security after](Images/12_wifi5_security_after.png) |
 
 ---
 
@@ -116,7 +116,7 @@ Go to **ADVANCED → Setup → Guest Network**.
 
 | Before | After |
 |---|---|
-| ![2.4 GHz guest network before](images/13_guest24_before.png) | ![2.4 GHz guest network after](images/14_guest24_after.png) |
+| ![2.4 GHz guest network before](Images/13_guest24_before.png) | ![2.4 GHz guest network after](Images/14_guest24_after.png) |
 
 ### 3.2 5 GHz guest network
 
@@ -126,7 +126,7 @@ Go to **ADVANCED → Setup → Guest Network**.
 
 | Before | After |
 |---|---|
-| ![5 GHz guest network before](images/15_guest5_before.png) | ![5 GHz guest network after](images/16_guest5_after.png) |
+| ![5 GHz guest network before](Images/15_guest5_before.png) | ![5 GHz guest network after](Images/16_guest5_after.png) |
 
 > In the reference screenshots, *Enable Guest Network* is left **unchecked**, so the guest networks stay off. Renaming them only keeps the naming consistent if they are ever enabled. If you do enable them, set security to **WPA2-Personal [AES]** (the default is **None**).
 
@@ -144,7 +144,7 @@ Go to **ADVANCED → Setup → LAN Setup**.
 
 | Before | After |
 |---|---|
-| ![LAN IP before](images/17_lan_ip_before.png) | ![LAN IP after](images/18_lan_ip_after.png) |
+| ![LAN IP before](Images/17_lan_ip_before.png) | ![LAN IP after](Images/18_lan_ip_after.png) |
 
 The router moves to the new address and the page will stop responding. Reconnect and renew your PC's IP so it gets a `10.1.1.x` address (Windows: `ipconfig /release` then `ipconfig /renew`), then sign in again at `http://10.1.1.2`.
 
@@ -158,7 +158,7 @@ The router moves to the new address and the page will stop responding. Reconnect
 
 | Before | After |
 |---|---|
-| ![DHCP range before](images/19_dhcp_before.png) | ![DHCP range after](images/20_dhcp_after.png) |
+| ![DHCP range before](Images/19_dhcp_before.png) | ![DHCP range after](Images/20_dhcp_after.png) |
 
 New devices receive addresses from this pool starting at `10.1.1.100` (e.g., `10.1.1.101`, `10.1.1.102`, …), up to `10.1.1.210` (111 addresses).
 
@@ -175,7 +175,7 @@ Go to **ADVANCED → Advanced Setup → Wireless Settings**.
 
 | Before | After |
 |---|---|
-| ![2.4 GHz radio enabled](images/21_radio24_before.png) | ![2.4 GHz radio disabled](images/22_radio24_after.png) |
+| ![2.4 GHz radio enabled](Images/21_radio24_before.png) | ![2.4 GHz radio disabled](Images/22_radio24_after.png) |
 
 The router now transmits **only on 5 GHz**. This is required because the lab uses 5 GHz exclusively, while UMB campus Wi-Fi operates mainly on 2.4 GHz.
 
