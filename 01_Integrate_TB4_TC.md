@@ -33,13 +33,13 @@ Since these movement scripts are already developed, running them is a third veri
 
 ### Video Demonstration
 
-[](./Images/TB4_MoveForward.mp4)
+[](https://github.com/user-attachments/assets/5c226ec2-d796-4f56-a8d3-1fdd1569354b)
 
 <video src="./Images/TB4_MoveForward.mp4" controls width="100%"></video>
 
 *Video 1: `move_forward.py` run on the Overhead Pi (right) and the TB4's response (left).*
 
-[](./Images/TB4_Rotate.mp4)
+[](https://github.com/user-attachments/assets/dba823b7-009e-4967-b29f-7e3b167382b8)
 
 <video src="./Images/TB4_Rotate.mp4" controls width="100%"></video>
 
