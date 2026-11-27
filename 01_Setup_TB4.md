@@ -136,4 +136,4 @@ This section explains a few problems that can come up after the baseline setup.
 Each of these issues has a dedicated solution, covered in [section/link], since the solutions are too long to include in this baseline setup.
 
 ## Next Chapter 
-[Integrate TB4 to the TC](https://github.com/Utin0313/research/blob/main/Documentation/01_Integrate_TB4_TC.md)
+[Integrate TB4 to the TC](https://github.com/Utin0313/research/blob/main/01_Integrate_TB4_TC.md)
