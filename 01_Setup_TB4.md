@@ -121,8 +121,7 @@ After configuring the network, the Overhead Pi should be able to run `ssh ubuntu
 
     * Type `source /opt/ros/jazzy/setup.bash` (loads the ROS 2 environment) $\rightarrow$ Type `echo $RMW_IMPLEMENTATION` on both the Overhead Pi and the TB4's Pi (the outputs must match; empty means the default, `rmw_fastrtps_cpp`) $\rightarrow$ Type `ros2 topic list | grep tb_02` (lists the sensor, velocity, and other topics published by the TB4 and the Create 3) $\rightarrow$ The software is correctly installed when all the relevant topics appear (e.g., `battery_state`, `cmd_audio`).
 
-        ![](./Images/VerifySoftware.png)
-
+         ![](./Images/VerifySoftware.png)
 
 ---
 
